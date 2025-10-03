@@ -42,6 +42,8 @@ function _flux(problem::MyPrimalFluxBalanceAnalysisCalculationModel)
     x_opt = value.(x);
     results["argmax"] = x_opt
     results["objective_value"] = objective_value(model);
+    results["status"] = termination_status(model);
+
 
     # return -
     return results
@@ -87,6 +89,8 @@ function _flux(problem::MyDualFluxBalanceAnalysisCalculationModel)
     z_opt = value.(z);
     results["argmin"] = z_opt
     results["objective_value"] = objective_value(model);
+    results["status"] = termination_status(model);
+
 
     # return -
     return results
